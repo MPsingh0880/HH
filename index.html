@@ -4,28 +4,78 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Harsh ❤️ Himanshi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
       background: linear-gradient(to top right, #ff9a9e, #fad0c4);
-      overflow: hidden;
       color: white;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
       text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      max-width: 500px;
+      width: 100%;
+      animation: fadeIn 2s ease;
     }
 
     h1 {
+      font-family: 'Great Vibes', cursive;
       font-size: 3em;
-      margin-top: 20vh;
-      animation: fadeIn 3s ease-in-out;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .message {
+      font-size: 1.2em;
+      margin: 20px 0;
+      animation: fadeIn 2s ease-in-out 1s both;
+    }
+
+    .proposal-button {
+      margin-top: 30px;
+      padding: 15px 40px;
+      background: #ffffff;
+      color: #ff4081;
+      font-weight: bold;
+      font-size: 1.3em;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 0 20px #ff4081;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      animation: fadeIn 3s ease-in-out 2s both;
+    }
+
+    .proposal-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #ff4081;
     }
 
     .heart-container {
-      position: absolute;
+      position: fixed;
       width: 100%;
       height: 100%;
-      overflow: hidden;
       z-index: -1;
+      top: 0;
+      left: 0;
+      overflow: hidden;
     }
 
     .heart {
@@ -35,6 +85,7 @@
       background: red;
       transform: rotate(45deg);
       animation: floatUp 10s infinite ease-in;
+      opacity: 0.6;
     }
 
     .heart::before, .heart::after {
@@ -73,48 +124,27 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    .message {
-      margin-top: 40px;
-      font-size: 1.5em;
-      animation: fadeIn 4s ease-in-out 2s both;
-    }
-
-    .proposal {
-      margin-top: 60px;
-      font-size: 2em;
-      background: white;
-      color: #ff4081;
-      padding: 20px 40px;
-      display: inline-block;
-      border-radius: 50px;
-      cursor: pointer;
-      animation: fadeIn 5s ease-in-out 4s both;
-      transition: transform 0.3s ease;
-    }
-
-    .proposal:hover {
-      transform: scale(1.05);
-    }
   </style>
 </head>
 <body>
 
   <div class="heart-container" id="hearts"></div>
 
-  <h1>Harsh ❤️ Himanshi</h1>
-  <div class="message">From the moment we met, my world changed forever...</div>
-
-  <div class="proposal" onclick="alert('She said YES! 💍❤️')">Will You Marry Me?</div>
+  <div class="container">
+    <h1>Harsh ❤️ Himanshi</h1>
+    <div class="message">You came into my life like a dream, and now I can't imagine it without you...</div>
+    <button class="proposal-button" onclick="alert('She said YES! 💍❤️')">Will You Marry Me?</button>
+  </div>
 
   <script>
     const hearts = document.getElementById('hearts');
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 60; i++) {
       let heart = document.createElement('div');
       heart.className = 'heart';
       heart.style.setProperty('--pos', Math.random());
       heart.style.left = Math.random() * 100 + 'vw';
       heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+      heart.style.opacity = Math.random();
       hearts.appendChild(heart);
     }
   </script>
